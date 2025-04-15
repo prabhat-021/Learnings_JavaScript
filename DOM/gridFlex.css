@@ -1,0 +1,40 @@
+.container {
+    background: #eee;
+    width: 700px;
+    height: 6 00px;
+    margin: 70px 0 0 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 200px;
+}
+
+.items1 {
+    background-color: #FF5733;
+}
+
+/* Red-Orange */
+.items2 {
+    background-color: #33FF57;
+}
+
+/* Green */
+.items3 {
+    background-color: #3357FF;
+}
+
+/* Blue */
+.items4 {
+    background-color: #FF33A1;
+}
+
+/* Pink */
+.items5 {
+    background-color: #FFD700;
+}
+
+/* Gold */
+.items6 {
+    background-color: #8A2BE2;
+}
+
+/* Purple */

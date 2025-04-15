@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pointer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #main {
+            background-color: wheat;
+            min-height: 100vh;
+        }
+
+        .circle {
+            background-color: rgba(1, 1, 1, 0.2);
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+
+    </div>
+
+    <script>
+        const main = document.getElementById("main");
+        const ele = document.createElement("div");
+        ele.classList.add("circle");
+
+        main.appendChild(ele);
+
+        main.addEventListener("mousemove", (e) => {
+            const x = e.clientX;
+            const y = e.clientY;
+
+            ele.style.left = `${x}px`;
+            ele.style.top = `${y}px`;
+        });
+    </script>
+</body>
+
+</html>

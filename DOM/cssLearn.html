@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Board</title>
+    <style>
+        .board {
+            display: grid;
+            grid-template-columns: repeat(8, 50px);
+            grid-template-rows: repeat(8, 50px);
+            width: 400px;
+            border: 2px solid black;
+        }
+        .square {
+            width: 50px;
+            height: 50px;
+        }
+        .square:nth-child(odd) {
+            background: black;
+        }
+        .square:nth-child(even) {
+            background: white;
+        }
+        .square:nth-child(8n + 1),
+        .square:nth-child(8n + 3),
+        .square:nth-child(8n + 5),
+        .square:nth-child(8n + 7) {
+            background: black;
+        }
+        .square:nth-child(8n + 2),
+        .square:nth-child(8n + 4),
+        .square:nth-child(8n + 6),
+        .square:nth-child(8n + 8) {
+            background: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="board">
+        <!-- 64 squares -->
+        <script>
+            for (let i = 0; i < 64; i++) {
+                document.write('<div class="square"></div>');
+            }
+        </script>
+    </div>
+</body>
+</html>

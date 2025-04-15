@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nested Comment</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .divBox {
+            background-color: grey;
+            display: flex;
+            flex-direction: column;
+            border-radius: 2%;
+        }
+
+        .divUl {
+            margin-left: 40px;
+        }
+
+        li {
+            list-style: none;
+            padding: 0;
+        }
+
+        .hiddin {
+            display: none !important;
+        }
+
+        .addComment {
+            display: flex;
+            width: 250px;
+            justify-content: space-evenly;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main" id="id_1">
+        <div class="divBox">
+            <h1>First Commenter</h1>
+            <a id="add">Add Reply</a>
+        </div>
+        <ul class="divUl" id="list"></ul>
+        <form class="hiddin" id="inputBox">
+            <input type="text" placeholder="Enter your comment here" id="text" />
+            <button id="submit" type="submit">Submit</button>
+        </form>
+    </div>
+
+
+    <script src="event.js"></script>
+</body>
+
+</html>

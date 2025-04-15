@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    flex-direction: row; /* Align lily pads and frogs in a row */
+    flex-wrap: wrap; /* Allow wrapping if needed */
+    gap: 10px; /* Add spacing */
+}
+
+.lilypad, .frog {
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.lilypad { background-color: lightgray; }
+.frog { background-color: lightgreen; }
+
+/* Ensuring correct order */
+.yellow { order: 1; }
+.green { order: 2; }
+.blue { order: 3; }

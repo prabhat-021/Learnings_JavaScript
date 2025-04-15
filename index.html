@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Circular Rotation</title>
+  <style>
+    .container {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      border: 2px dashed gray;
+    }
+
+    .box {
+      width: 160px;
+      height: 160px;
+      background-color: red;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform-origin: center;
+      animation: circular-motion 4s linear infinite, self-rotate 2s linear infinite;
+    }
+
+    @keyframes circular-motion {
+      0% {
+        transform: rotate(0deg) translate(100px) rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg) translate(100px) rotate(-360deg);
+      }
+    }
+
+    @keyframes self-rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Subscribe to Roadside Coder <br> else you will have bad dreams today.</h1>
+
+    <button id="increment_btn">Increment</button>
+
+    <p>Button Pressed <span class="increment_pressed">0</span> Times</p>
+    <p>Triggered <span class="increment_count">0</span> Times</p>
+  </div>
+  <script src="debouncing.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Accordian</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .accordion{
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .heading {
+            background-color: aqua;
+            width: 50vw;
+            height: 5vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .para{
+            max-height: 200px;
+            background-color: aquamarine;
+            transition: max-height 2s ease-in-out ;
+        }
+
+        .btn {
+            width: 150px;
+            height: 100%;
+            background-color: yellowgreen;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+    </style>
+</head>
+
+<body>
+    <section id="main">
+    </section>
+    <script src="accordian.js"></script>
+</body>
+
+</html>

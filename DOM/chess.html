@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Board</title>
+    <style>
+        .chessboard {
+            display: grid;
+            grid-template-columns: repeat(8, 50px);
+            grid-template-rows: repeat(8, 50px);
+            width: 400px;
+            height: 400px;
+            border: 2px solid black;
+        }
+
+        .square {
+            width: 50px;
+            height: 50px;
+        }
+
+        .black {
+            background-color: black;
+        }
+
+        .white {
+            background-color: white;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="chessboard" id="board"></div>
+
+    <script>
+        function createChessBoard() {
+            const board = document.getElementById("board");
+            for (let row = 0; row < 8; row++) {
+                for (let col = 0; col < 8; col++) {
+                    const square = document.createElement("div");
+                    square.classList.add("square");
+
+                    square.setAttribute("data-index", `${row}-${col}`);
+                    // Alternate colors
+                    if ((row + col) % 2 === 0) {
+                        square.classList.add("white");
+                    } else {
+                        square.classList.add("black");
+                    }
+                    board.appendChild(square);
+                }
+            }
+        }
+
+        document.getElementById("board").addEventListener("mouseover", (e) => {
+            const idx = e.target.dataset.index.split("-").map((val) => parseInt(val));
+            let row = idx[0];
+            let col = idx[1];
+
+            const squares = document.querySelectorAll(".square");
+            squares.forEach(square => square.classList.remove("blue")); 
+
+            for (let i = 1; i < 8; i++) {
+                highlightSquare(row + i, col + i); // ↘️
+                highlightSquare(row - i, col - i); // ↖️
+                highlightSquare(row + i, col - i); // ↙️
+                highlightSquare(row - i, col + i); // ↗️
+            }
+        })
+
+        function highlightSquare(row, col) {
+            if (row >= 0 && row < 8 && col >= 0 && col < 8) {
+                document.querySelector(`[data-index='${row}-${col}']`).classList.add("blue");
+            }
+        }
+
+        document.getElementById("board").addEventListener("mouseleave", () => {
+            document.querySelectorAll(".square").forEach(square => square.classList.remove("blue"));
+        });
+        createChessBoard();
+    </script>
+</body>
+
+</html>

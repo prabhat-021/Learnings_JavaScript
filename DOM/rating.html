@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rating Component</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .ult {
+            display: flex;
+            justify-content: space-around;
+            width: 400px;
+        }
+
+        li {
+            list-style: none;
+            padding: 0;
+        }
+
+        .fa {
+            font-size: 36px;
+        }
+
+        .fa:hover {
+            color: gold;
+        }
+
+        .gold {
+            color: gold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <h1 class="head">Star Rating Component </h1>
+        <ul class="ult">
+            <li><span class="fa fa-star"></span></li>
+            <li><span class="fa fa-star"></span></li>
+            <li><span class="fa fa-star"></span></li>
+            <li><span class="fa fa-star"></span></li>
+            <li><span class="fa fa-star"></span></li>
+        </ul>
+        <div>Rating Count :<span class="rating">0</span></div>
+    </div>
+
+    <script src="event.js"></script>
+</body>
+
+</html>

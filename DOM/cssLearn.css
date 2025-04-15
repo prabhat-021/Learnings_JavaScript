@@ -1,0 +1,30 @@
+.parent {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background: lightblue;
+}
+
+.child {
+    position: absolute;
+    top: 240px;
+    left: 30px;
+    width: 100px;
+    height: 100px;
+    background: coral;
+}
+
+/*  CSS Pseudo-Elements
+
+::first-letter 
+
+::first-line 
+
+::marker work on ul li
+
+::selection
+
+::before
+
+::after 
+*/

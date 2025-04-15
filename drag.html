@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .box {
+            width: 250px;
+            height: 250px;
+            border: 2px dashed #007bff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 16px;
+            color: #007bff;
+            background: #e9f5ff;
+            border-radius: 8px;
+            transition: background 0.3s;
+            overflow: hidden;
+            position: relative;
+        }
+        .box:hover {
+            background: #d0ebff;
+        }
+        .draggable {
+            padding: 12px 20px;
+            background-color: #007bff;
+            color: white;
+            cursor: grab;
+            font-weight: bold;
+            border-radius: 6px;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .draggable:active {
+            transform: scale(0.95);
+        }
+        .preview {
+            max-width: 100%;
+            max-height: 100%;
+            position: absolute;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="dragItem" class="draggable" draggable="true">Drag a File</div>
+        <input type="file" id="fileInput" style="display: none;" accept="image/*">
+        <div id="dropZone" class="box">Drop Here</div>
+    </div>
+    <script>
+        const dragItem = document.getElementById("dragItem");
+        const fileInput = document.getElementById("fileInput");
+        const dropZone = document.getElementById("dropZone");
+        let selectedFile = null;
+
+        dragItem.addEventListener("click", () => {
+            fileInput.click();
+        });
+
+        fileInput.addEventListener("change", (event) => {
+            selectedFile = event.target.files[0];
+            if (selectedFile) {
+                dragItem.textContent = `Selected: ${selectedFile.name} (Drag Me)`;
+            }
+        });
+
+        dragItem.addEventListener("dragstart", (event) => {
+            if (selectedFile) {
+                event.dataTransfer.setData("file", URL.createObjectURL(selectedFile));
+            }
+        });
+
+        dropZone.addEventListener("dragover", (event) => {
+            event.preventDefault();
+        });
+
+        dropZone.addEventListener("drop", (event) => {
+            event.preventDefault();
+            const fileURL = event.dataTransfer.getData("file");
+            if (fileURL) {
+                dropZone.innerHTML = `<img src="${fileURL}" class="preview" alt="Dropped Image">`;
+            }
+        });
+    </script>
+</body>
+</html>
