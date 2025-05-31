@@ -17,7 +17,7 @@ const debounce = function (fn, delay) {
 };
 
 // Creating a debounced function
-const betterFunction = debounce(getData, 300);
+const betterFunction = debounce(getData, 300);  
 
 // // Simulating multiple rapid calls
 // betterFunction();
@@ -44,7 +44,7 @@ const throttle = (fn, limit) => {
         // console.log(context);
         
         if (flag) {
-            fn.apply( args); // Execute function
+            fn.apply(args); // Execute function
             
             flag = false;
 
@@ -54,6 +54,7 @@ const throttle = (fn, limit) => {
         }
     };
 };
+
 const betterLoggerFunction = throttle(loggerFunc, 2000);
 window.addEventListener("resize", betterLoggerFunction); // Throttled
 // window.addEventListener("resize", loggerFunc); // Unthrottled

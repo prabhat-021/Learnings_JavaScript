@@ -57,13 +57,15 @@
             }
         }
 
+        createChessBoard();
+
         document.getElementById("board").addEventListener("mouseover", (e) => {
             const idx = e.target.dataset.index.split("-").map((val) => parseInt(val));
             let row = idx[0];
             let col = idx[1];
 
             const squares = document.querySelectorAll(".square");
-            squares.forEach(square => square.classList.remove("blue")); 
+            squares.forEach(square => square.classList.remove("blue"));
 
             for (let i = 1; i < 8; i++) {
                 highlightSquare(row + i, col + i); // ↘️
@@ -82,7 +84,6 @@
         document.getElementById("board").addEventListener("mouseleave", () => {
             document.querySelectorAll(".square").forEach(square => square.classList.remove("blue"));
         });
-        createChessBoard();
     </script>
 </body>
 
